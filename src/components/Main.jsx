@@ -38,28 +38,30 @@ function Main() {
   return (
     <div className="container">
         <div className="header-section">
-        <div className="headings">
-            <h1 className="app-title">Find your film</h1>
-            <h3 className="app-subtitle">My Watchlist</h3>
-        </div>
-        <div className="searchBar">
-            <div className="searchBar-input">
-            <img src={searchIcon} alt="searchIcon" className="search-icon" />
-            <input
-                type="text"
-                placeholder="search"
-                className="search-input"
-                onChange={handleChange}
-                value={search}
-            />
-            </div>
-            <button className="searchBar-btn" onClick={() => fetchData()}>
-            Search
-            </button>
-        </div>
+          <div className="headings">
+              <h1 className="app-title">Find your film</h1>
+              <h3 className="app-subtitle">My Watchlist</h3>
+          </div>
         </div>
         <div className="main-section">
-            {cards}
+        <div className="searchBar">
+            <div className="searchBar-input">
+              <img src={searchIcon} alt="searchIcon" className="search-icon" />
+              <input
+                  type="text"
+                  placeholder="search"
+                  className="search-input"
+                  onChange={handleChange}
+                  value={search}
+              />
+              </div>
+              <button className="searchBar-btn" onClick={() => fetchData()}>
+              Search
+              </button>
+          </div>
+            <div className="card-section">
+              {cards}
+            </div>
         </div>
     </div>
   );
