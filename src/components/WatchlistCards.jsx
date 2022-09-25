@@ -2,7 +2,7 @@ import starIcon from "../img/star-icon.svg";
 import addBtn from "../img/add-btn.svg";
 import removeBtn from "../img/remove-btn.svg";
 
-function Card(props) {
+function WatchlistCards(props) {
   return (
     <div className="card">
       <img src={`https://image.tmdb.org/t/p/original/${props.imgUrl}`} alt={props.title} className="cardImg"/>
@@ -17,17 +17,14 @@ function Card(props) {
         <div className="card-second-container">
           <span className="card-date">{props.date}</span>
           <span className="card-Watchlst-btn">
-            <img src={props.active ? removeBtn : addBtn} 
-                  alt="Add Button" 
+            <img src={removeBtn} 
+                  alt="Remove Button" 
                   onClick={ () => {
-                    props.addToWatchlist(props.id)
+                    props.removeFromWatchlist(props.id)
                     props.toggleActive(props.id)
                   }}
-                  style = {{
-                    display: props.active ? "none" : "block"
-                  }}
             />
-            {props.active ? "Added to Watchlist" : "Watchlist"}
+            Watchlist
           </span>
         </div>
         <div className="card-third-container">
@@ -38,4 +35,4 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default WatchlistCards;

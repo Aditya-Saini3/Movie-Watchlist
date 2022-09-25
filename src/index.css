@@ -25,7 +25,7 @@ html{
 }
 
 .App {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
@@ -53,6 +53,12 @@ html{
 
 .app-subtitle {
   font-size: var(--fs-appSubTitle);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.app-subtitle:hover {
+  transform: scale(1.2);
 }
 
 .headings {
@@ -76,7 +82,7 @@ html{
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   height: 40px;
   margin: 0 auto;
-  margin-bottom: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .searchBar-input {
   position: relative;
@@ -127,6 +133,19 @@ html{
   color: #FFFFFF;
 }
 
+.card-section {
+  margin-top: 50px;
+}
+
+.noMovie {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-cardTitle);
+  gap: 5px;
+}
+
 .card {
   display: flex;
   flex-direction: row;
@@ -138,6 +157,8 @@ html{
 .cardImg {
  border-radius: 2.5px;
  width: 100px;
+ pointer-events: all;
+ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .card-content {
@@ -188,16 +209,46 @@ html{
   gap: 5px;
 }
 
-.card-Watchlst-btn img {
+.card-Watchlst-btn img, .noMovie img {
   width: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card-Watchlst-btn img:hover, .noMovie img:hover {
+  transform: scale(1.4) rotate(180deg);
 }
 
 .card-third-container {
   font-size: var(--fs-cardDescription);
   font-weight: 400;
   line-height: var(--lh-cardDescription);
-  overflow: hidden;
+  overflow-y: scroll;
+  padding: 5px;
+  padding-left: 0;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #2e2e2e #0e0e0e;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #0e0e0e;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    border: 0px none #ffffff;
+  }
 
 @media screen and (max-width: 350px) {
   :root {
@@ -234,7 +285,7 @@ html{
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
 
   :root {
     --fs-appTitle: 5rem;
@@ -268,5 +319,6 @@ html{
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
     width: 100%;
+    margin-top: 15px;
   }
 }
